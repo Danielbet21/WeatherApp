@@ -1,0 +1,146 @@
+link to explain how to insert a matplotlib figure inside tkinter:
+https://www.youtube.com/watch?v=lVTC8CvScQo&ab_channel=CodersLegacy
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+open meteo:
+api: (work with longitude latitude)
+https://api.open-meteo.com/v1/forecast?latitude=32.0809&longitude=34.7806&hourly=temperature_2m,rain,windspeed_10m&current_weather=true
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+neutrinoapi:
+longitude & latitude generetore:
+root key : 46lNK8rkwQHXRnuZ59tYe51klScd6mjY62aunCGpqHRPHIQa
+user ID : 212183
+
+weather API:
+
+key : 9f5bb35c43b74a6fb5d114755232707 
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+wheatherAPI:
+
+key : 5580229a7d3042049da132814232807                               v
+                                                                    v
+working api : https://api.openweathermap.org/data/2.5/weather?q="city+name"&unit=metric&appid=a8650776c32f7b7b33b860988b51809a
+
+*** if there is any resone to change language: use "lang = he" (he=Hebrew, en= English)
+
+how the file return:
+
+{"coord":{"lon":34.8,"lat":32.0833},
+"weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01n"}],
+"base":"stations",
+"main":{"temp":303.09,"feels_like":308.53,"temp_min":301.73,"temp_max":303.81,"pressure":1006,"humidity":72},
+"visibility":10000,
+"wind":{"speed":2.57,"deg":20},
+"clouds":{"all":0},
+"dt":1690398084,
+"sys":{"type":1,"id":6845,"country":"IL","sunrise":1690339891,"sunset":1690389769},
+"timezone":10800,
+"id":293396,
+"name":"Tel Aviv",
+"cod":200}
+
+-------------------------------------------------------------------------------------------------------------------------------
+wheatherAPI:
+
+key :5580229a7d3042049da132814232807
+
+
+{"location":
+{"name":"Tel Aviv-Yafo",
+"region":"Tel Aviv",
+"country":"Israel",
+"lat":32.07,
+"lon":34.76,
+"tz_id":"Asia/Jerusalem",
+"localtime_epoch":1690461751,
+"localtime":"2023-07-27 15:42"},
+
+"current":
+{"temp_c":35.0,
+"condition":{"text":"Clear"},
+"wind_kph":20.2,
+"cloud":0,
+"vis_km":10.0,
+"uv":1.0,
+"gust_mph":8.1},
+
+"forecast":{"forecastday":[{"date":"2023-07-27","day":{"avgtemp_c":30.4,"maxwind_kph":17.3,"totalprecip_mm":0.0,"totalsnow_cm":0.0,"avgvis_km":10.0,daily_chance_of_rain":0,"daily_chance_of_snow":0,"condition":{"text":"Sunny"}},
+}]}}
+
+-------------------------------------------------------------------------------------------------------------------------------
+3 days forcast example
+
+{
+"location":
+    {"name":"Tel Aviv-Yafo",
+    "region":"Tel Aviv",
+    "country":"Israel",
+    "lat":32.07,
+    "lon":34.76,
+    "tz_id":"Asia/Jerusalem",
+    "localtime_epoch":1690551524,
+    "localtime":"2023-07-28 16:38"},
+    
+    "current":
+        {"temp_c":34.0,
+        "condition":{"text":"Sunny"},
+        "wind_kph":20.2,
+        "cloud":0,
+        "vis_km":10.0,
+        "uv":8.0},
+    
+    "forecast":
+        {"forecastday": 
+            [{"date":"2023-07-28",
+                "day":
+                {"maxtemp_c":33.4,
+                "mintemp_c":26.9,
+                "avgtemp_c":29.9,
+                "maxwind_kph":16.6,
+                "totalprecip_mm":0.0,
+                "totalsnow_cm":0.0,
+                "daily_chance_of_rain":0,
+                "daily_chance_of_snow":0,
+                "condition":{}},
+                
+                "astro":{},
+                
+                "hour":[{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}}]},
+                
+            {"date":"2023-07-29",
+            "day":  
+                {"maxtemp_c":33.2, 
+                "mintemp_c":26.8,
+                "avgtemp_c":28.9,
+                "maxwind_kph":19.4,
+                "totalprecip_mm":0.0,
+                "totalsnow_cm":0.0,
+                "daily_chance_of_rain":0,
+                "daily_chance_of_snow":0,
+                "condition":{}},
+                
+                "astro":{},
+                "hour":[{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}}]},
+                
+            {"date":"2023-07-30",
+            "day":
+                {"maxtemp_c":32.7,
+                "mintemp_c":26.3,
+                "avgtemp_c":28.7,
+                "maxwind_kph":22.0,
+                "totalprecip_mm":0.0,
+                "totalsnow_cm":0.0,
+                "daily_chance_of_rain":0,
+                "daily_chance_of_snow":0,
+                "condition":{}},
+                
+                "astro":{},
+                
+                "hour":[{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}}]}]}
+                
+}
