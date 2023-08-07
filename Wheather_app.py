@@ -12,19 +12,13 @@ start.title("Global weather app")
 start.geometry("400x200")
 
 def get_forcast():
+    maxDay=[]
+    minDay =[]
     global img1
     base = Toplevel()
     base.title("Global weather app")
     base.geometry("400x500")
     
-#-------------------------------------------------------------------------------------------------------------------------------
-    #the bars frame: weekly forcast base on avrage temp
-
-    #Create an frame
-    # bar_frame= Frame(base, bg= color,bd=20)
-
-
-    # bar_frame.pack(expand=True,fill=BOTH)
 #-------------------------------------------------------------------------------------------------------------------------------
 
     location =entry.get()
@@ -40,6 +34,12 @@ def get_forcast():
         city_name = api["location"]["name"]
         wind = api["current"]["wind_kph"]
         chance_of_rain =api['forecast']['forecastday'][0]['day']['daily_chance_of_rain']
+        
+        #appending all the min,max values 
+        for forcast_day in api["forecastday"]:
+            day = forcast_day["day"]
+            maxDay.append(day["maxtemp_c"])
+            minDay.append(day["mintemp_c"])
 
     except Exception as e:
         api ="Error for some reasone"
@@ -62,7 +62,6 @@ def get_forcast():
     # getting the current hour for the img-sun\moon
 
     now = datetime.now()
-    print("hi")################################################
     now_hour = now.strftime("%H")
     now_hour = int(now_hour)
     
@@ -83,26 +82,38 @@ def get_forcast():
     
     today_frame.pack(expand=True,fill=BOTH)
 
-today = date.today()
-num_of_day = today.strftime("%d")
+# today = date.today()
+# num_of_day = today.strftime("%d")
 #-------------------------------------------------------------------------------------------------------------------------------
-
+ #The bars frame: 7 days forcast base on max & min temp
+    fig ,ax = plt.subplots()
+    ax.plot(minDay,maxDay)
+    
+    #Create an frame
+    bar_frame= Frame(base, bg= color,bd=20)
+    #Create canvas to "draw" in it the matplotlib fig
+    canvas = FigureCanvasTkAgg(fig, master=bar_frame)
+    canvas.draw()
+    canvas.get_tk_widget().pack
+    
+    bar_frame.pack(expand=True,fill=BOTH)
+#-------------------------------------------------------------------------------------------------------------------------------
 #Opening page
-bar_frame= Frame(start, bg= "light blue",bd=20)
+open_frame= Frame(start, bg= "light blue",bd=20)
 
-lab = Label(bar_frame,text="type your desire destanation",bg="light blue")
+lab = Label(open_frame,text="type your desire destanation",bg="light blue")
 lab.config(font=("Fixedsys",10))
 
-entry = Entry(bar_frame)
+entry = Entry(open_frame)
 loc = entry.get()
 
-but = Button(bar_frame,text="press when you ready",command=get_forcast)
+but = Button(open_frame,text="press when you ready",command=get_forcast)
 
 lab.pack()
 entry.pack()
 but.pack()
 
-bar_frame.pack(expand=True,fill=BOTH)
+open_frame.pack(expand=True,fill=BOTH)
 
 start.mainloop()
 
