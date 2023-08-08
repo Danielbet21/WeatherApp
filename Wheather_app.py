@@ -20,7 +20,7 @@ def get_forcast():
     base.geometry("400x600")
     
 #-------------------------------------------------------------------------------------------------------------------------------
-
+# getting the location input
     location =entry.get()
     location =location.replace(" ","+")
     
@@ -83,7 +83,7 @@ def get_forcast():
     today_frame.pack(expand=True,fill=BOTH)
 
 #-------------------------------------------------------------------------------------------------------------------------------
-#The bars frame: 7 days forcast base on max & min temp
+#The bars frame: 5 days forcast base on max & min temp
     
     fig ,ax = plt.subplots() 
     
